@@ -17,5 +17,4 @@ Gem::Specification.new do |s|
   s.executables << 'btct'
 
   s.add_dependency 'bitstamp', '~> 0.2.8'
-  s.add_dependency 'mtgox', '~> 1.1.0'
 end
