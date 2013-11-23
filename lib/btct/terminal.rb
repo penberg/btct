@@ -32,6 +32,7 @@ module BTCT
         Curses.init_screen
         Curses.nl
         Curses.noecho
+        Curses.curs_set(0)
         Curses.setpos(0,  0) ; Curses.addstr "BTC/USD"
         Curses.setpos(0, 21) ; Curses.addstr "Bid"
         Curses.setpos(0, 46) ; Curses.addstr "Ask"
