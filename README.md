@@ -14,12 +14,12 @@ on various exchanges.
   * Mt.Gox
   * The Rock
 
-## Prerequisites
+## Installation
 
-Install Gem dependencies:
+Install the gem:
 
 ```
-$ bundle install
+$ gem install btct
 ```
 
 ## Usage
@@ -27,7 +27,7 @@ $ bundle install
 Start the Bitcoin terminal:
 
 ```
-$ ./bin/btct
+$ btct
 ```
 
 ## License
