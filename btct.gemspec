@@ -15,6 +15,4 @@ Gem::Specification.new do |s|
   s.license     = 'MIT'
 
   s.executables << 'btct'
-
-  s.add_dependency 'bitstamp', '~> 0.2.8'
 end
