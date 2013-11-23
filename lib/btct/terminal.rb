@@ -1,87 +1,12 @@
-require 'bitstamp'
-require 'mtgox'
-require 'btce'
-
-require 'open-uri'
 require 'curses'
 
+require 'btct/bitstamp'
+require 'btct/therock'
+require 'btct/campbx'
+require 'btct/mtgox'
+require 'btct/btce'
+
 module BTCT
-  class Quote
-    attr_reader :price, :amount, :exchange
-
-    def initialize(price, amount, exchange)
-      @price, @amount, @exchange = price.to_f, amount.to_f, exchange
-    end 
-  end
-
-  class BtceAPI
-    def name
-      "BTC-E"
-    end
-
-    def top
-      ob = Btce::PublicAPI.get_btc_usd_depth_json
-      bid = ob["bids"].sort { |x, y| x[0].to_f <=> y [0].to_f }.last
-      ask = ob["asks"].sort { |x, y| x[0].to_f <=> y [0].to_f }.first
-      return Quote.new(bid[0], bid[1], name), Quote.new(ask[0], ask[1], name)
-    end
-  end
-
-  class BitstampAPI
-    def name
-      "Bitstamp"
-    end
-
-    def top
-      ob = JSON.parse Bitstamp::Net.get('/order_book/').body_str
-      bid = ob["bids"].sort { |x, y| x[0].to_f <=> y [0].to_f }.last
-      ask = ob["asks"].sort { |x, y| x[0].to_f <=> y [0].to_f }.first
-      return Quote.new(bid[0], bid[1], name), Quote.new(ask[0], ask[1], name)
-    end
-  end
-
-  class CampBxAPI
-    def name
-      "CampBX"
-    end
-
-    def top
-      ob = JSON.parse open("http://campbx.com/api/xdepth.php").read
-      bid = ob["Bids"].sort { |x, y| x[0].to_f <=> y [0].to_f }.last
-      ask = ob["Asks"].sort { |x, y| x[0].to_f <=> y [0].to_f }.first
-      return Quote.new(bid[0], bid[1], name), Quote.new(ask[0], ask[1], name)
-    end
-  end
-
-  class MtGoxAPI
-    def name
-      "Mt.Gox"
-    end
-
-    def top
-      bid = MtGox.bids.sort { |x, y| x.price <=> y.price }.last
-      ask = MtGox.asks.sort { |x, y| x.price <=> y.price }.first
-      return Quote.new(bid.price, bid.amount, name), Quote.new(ask.price, ask.amount, name)
-    end
-  end
-
-  class TheRockAPI
-    def name
-      "The Rock"
-    end
-
-    def top
-      begin
-        ob = JSON.parse open("https://www.therocktrading.com/api/orderbook/BTCUSD").read
-        bid = ob["bids"].sort { |x, y| x[0].to_f <=> y [0].to_f }.last
-        ask = ob["asks"].sort { |x, y| x[0].to_f <=> y [0].to_f }.first
-        return Quote.new(bid[0], bid[1], name), Quote.new(ask[0], ask[1], name)
-      rescue
-        return Quote.new(0.0, 0.0, name), Quote.new(0.0, 0.0, name)
-      end
-    end
-  end
-
   class Terminal
     def initialize(argv)
     end
