@@ -1,5 +1,7 @@
 # Bitcoin Terminal
 
+[![Gem Version](https://badge.fury.io/rb/btct.png)](http://badge.fury.io/rb/btct)
+
 Bitcoin Terminal is a Ruby application for monitoring real-time Bitcoin quotes
 on various exchanges.
 
