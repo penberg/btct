@@ -1,5 +1,3 @@
-require 'btce'
-
 require 'btct/quote'
 
 module BTCT
@@ -9,7 +7,7 @@ module BTCT
     end
 
     def top
-      ob = Btce::PublicAPI.get_btc_usd_depth_json
+      ob = JSON.parse open("https://btc-e.com/api/2/btc_usd/depth").read
       bid = ob["bids"].sort { |x, y| x[0].to_f <=> y [0].to_f }.last
       ask = ob["asks"].sort { |x, y| x[0].to_f <=> y [0].to_f }.first
       return Quote.new(bid[0], bid[1], name), Quote.new(ask[0], ask[1], name)

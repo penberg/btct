@@ -18,5 +18,4 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'bitstamp', '~> 0.2.8'
   s.add_dependency 'mtgox', '~> 1.1.0'
-  s.add_dependency 'btce', '~> 0.1.10'
 end
