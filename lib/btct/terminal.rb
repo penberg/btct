@@ -55,6 +55,17 @@ module BTCT
             Curses.setpos(row, 0) ; Curses.addstr text
             row = row + 1
           end
+          row = 11
+          text = "%-10s %-12s %-12s %-12s %-12s %s" % [ "", "Last", "Volume", "High", "Low", "Time" ]
+          Curses.setpos(row, 0) ; Curses.addstr text
+          row = row + 1
+          tickers = sources.map { |source| source.ticker }
+          tickers.sort! { |x, y| y.time <=> x.time }
+          tickers.each do |ticker|
+            text = "%-10s %-12.6f %-12.6f %-12.6f %-12.6f %s" % [ ticker.exchange, ticker.last, ticker.volume, ticker.high, ticker.low, ticker.time.strftime("%H:%M:%S") ]
+            Curses.setpos(row, 0) ; Curses.addstr text
+            row = row + 1
+          end
           Curses.refresh
           sleep 5
         end
