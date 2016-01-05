@@ -9,14 +9,14 @@ module BTCT
     end
 
     def top
-      ob = JSON.parse open("http://campbx.com/api/xdepth.php").read
+      ob = JSON.parse open("https://campbx.com/api/xdepth.php").read
       bid = ob["Bids"].sort { |x, y| x[0].to_f <=> y [0].to_f }.last
       ask = ob["Asks"].sort { |x, y| x[0].to_f <=> y [0].to_f }.first
       return Quote.new(bid[0], bid[1], name), Quote.new(ask[0], ask[1], name)
     end
 
     def ticker
-      ticker = JSON.parse open("http://campbx.com/api/xticker.php").read
+      ticker = JSON.parse open("https://campbx.com/api/xticker.php").read
       Ticker.new(
         :last     => ticker["Last Trade"].to_f,
         :volume   => 0.0,
