@@ -1,6 +1,7 @@
 require 'curses'
 
 require 'btct/bitstamp'
+require 'btct/coinbase'
 require 'btct/therock'
 require 'btct/campbx'
 require 'btct/btce'
@@ -15,6 +16,7 @@ module BTCT
         BitstampAPI.new,
         BtceAPI.new,
         CampBxAPI.new,
+        CoinbaseAPI.new,
         TheRockAPI.new
       ]
       begin
