@@ -3,7 +3,6 @@ require 'curses'
 require 'btct/bitstamp'
 require 'btct/therock'
 require 'btct/campbx'
-require 'btct/mtgox'
 require 'btct/btce'
 
 module BTCT
@@ -16,7 +15,6 @@ module BTCT
         BitstampAPI.new,
         BtceAPI.new,
         CampBxAPI.new,
-        MtGoxAPI.new,
         TheRockAPI.new
       ]
       begin

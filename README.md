@@ -13,7 +13,6 @@ on various exchanges.
   * BTC-E
   * Bitstamp
   * CampBX
-  * Mt.Gox
   * The Rock
 
 ## Installation
