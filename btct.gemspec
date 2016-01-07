@@ -15,4 +15,6 @@ Gem::Specification.new do |s|
   s.license     = 'MIT'
 
   s.executables << 'btct'
+
+  s.add_runtime_dependency 'curses', '~> 1.0'
 end
