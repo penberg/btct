@@ -4,6 +4,7 @@ require 'btct/bitstamp'
 require 'btct/coinbase'
 require 'btct/therock'
 require 'btct/campbx'
+require 'btct/itbit'
 require 'btct/btce'
 
 module BTCT
@@ -17,6 +18,7 @@ module BTCT
         BtceAPI.new,
         CampBxAPI.new,
         CoinbaseAPI.new,
+        ItBitAPI.new,
         TheRockAPI.new
       ]
       begin
