@@ -14,6 +14,7 @@ on various exchanges.
   * Bitstamp
   * CampBX
   * Coinbase
+  * itBit
   * The Rock
 
 ## Installation
