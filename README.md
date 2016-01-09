@@ -14,6 +14,7 @@ on various exchanges.
   * Bitstamp
   * CampBX
   * Coinbase
+  * Gemini
   * itBit
   * The Rock
 
